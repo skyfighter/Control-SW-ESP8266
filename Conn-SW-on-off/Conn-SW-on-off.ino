@@ -8,6 +8,7 @@
   2. CREATE USER 'USER'@'%' IDENTIFIED BY 'PASSWORD'; or Use PHPMyAdmin to Add user
   3. Use command 'SELECT user, host FROM mysql.user; and 'SELECT USER(), CURRENT_USER();' read more http://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
   4. Test Use can connect to MySQL Databases
+  
 */
 #include <ESP8266WiFi.h>
 #include <MySQL_Connection.h>
@@ -25,9 +26,9 @@ DHT dht(DHTPIN, DHTTYPE);
 
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
-IPAddress server_addr(, , , );  // IP of the MySQL *server* here
-char user[] = "--user of mysql--";                        // MySQL user login username
-char pass[] = "--password--";                        // MySQL user login password
+IPAddress server_addr(118, 174, 187, 182);  // IP of the MySQL *server* here
+char user[] = "-----";                        // MySQL user login username
+char pass[] = "-----";                        // MySQL user login password
 
 
 char INSERT_DATA[] = "INSERT INTO test_arduino.dth22 (temp,message) VALUES (%s,'%s')";
@@ -35,8 +36,8 @@ char query[128];
 char temperature[10];
 
 
-const char* ssid = "--SSID--";             //SSID WiFi name
-const char* password = "--password--";        //Password WiFi
+const char* ssid = "----";             //SSID WiFi name
+const char* password = "-----";        //Password WiFi
 WiFiClient client;
 MySQL_Connection conn((Client *)&client);
 
